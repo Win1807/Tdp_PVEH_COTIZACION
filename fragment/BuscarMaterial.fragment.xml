@@ -1,0 +1,104 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:c="sap.ui.core"    
+    xmlns:l="sap.ui.layout">
+	<Dialog 
+        title = "Búsqueda"
+        afterClose= "cancelarBusqueda"
+        enableScrolling="true">
+        <!--<content>-->
+        <l:VerticalLayout 
+            class="sapUiContentPadding" 
+            width="100%">
+            <f:Form 
+                id="frmReporte"
+                editable="true">
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="12"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="1"
+                    emptySpanL="1"
+                    emptySpanM="1"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="2"
+                    columnsM="1"
+                    singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer title="">
+                        <f:formElements>
+                            <f:FormElement label="">
+                                <f:fields>
+                                    <Label text="Cod. Material"/>
+                                    <Input id="inCodMaterial"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="">
+                                <f:fields>
+                                    <Label text="Texto Breve Descr."/>
+                                    <Input id="inTextoBreve"/>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+
+        </l:VerticalLayout>
+        <l:VerticalLayout>
+            <Table 
+                id="tbBusqueda"
+                mode="Single"
+                busyIndicatorDelay="{oModel2>/tableBusyDelay}"
+                growing="true"
+                growingScrollToLoad="true"
+                selectionChange="onSelectionChange"
+                updateFinished="onUpdateFinished"
+                items="{path:'/'}"
+                class="sapUiResponsiveContent">
+                <items>
+                    <ColumnListItem press="seleccionarBusqueda" type="Active">
+                        <cells>
+                            <Text text="{matnr}"></Text>
+                            <Text text="{maktx}"></Text>
+                            <Text text="{meins}"></Text>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+                <columns>
+                    <Column>
+                        <Label text="Cod. Material" />
+                    </Column>
+                    <Column>
+                        <Label text="Modelo" />
+                    </Column>
+                    <Column>
+                        <Label text="Unidad Medida" />
+                    </Column>
+                </columns>
+            </Table>
+        </l:VerticalLayout>
+        <!--</content>-->
+		<beginButton>
+		 	<Button 
+                text="Buscar"
+                press="buscarPersona"
+                type="Accept"
+                icon="sap-icon://search"/>
+        </beginButton>
+        <endButton>
+		 	<Button 
+                text="Cancelar"
+                press="cancelarBusqueda"
+                type="Reject"
+                icon="sap-icon://decline"/>
+        </endButton>
+	</Dialog>
+</c:FragmentDefinition>

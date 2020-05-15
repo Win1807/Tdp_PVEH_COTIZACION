@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "sap.ui.veh_cotizacion.portalVehiculos",
+        "description": "Portal Vehiculos",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#portalVehiculos-Display",
+        "navigationComponentName": "sap.ui.veh_cotizacion",
+        "intentSemanticObject": "portalVehiculos",
+        "intentAction": "Display",
+        "html5ApplicationName": "portalvehiculos",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "306b8889-3c67-44b0-b5e2-b7264bc94377-1506619373663"
+        ],
+        "contentPackages": [
+            "39029b15-eb13-40f3-8e91-a8081035588f-1505443989684"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Portal Vehiculos",
+        "subtitle": "Portal Vehiculos",
+        "searchKeywords": "Portal Vehiculos,Portal Vehiculos",
+        "displayIconUrl": "sap-icon://car-rental",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

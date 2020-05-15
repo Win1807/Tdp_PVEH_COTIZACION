@@ -1,0 +1,13 @@
+.sapUiTableTr.sapUiTableRowSel:not(.sapUiTableGroupHeader)>td:not(.sapUiTableTDDummy){
+	background-color:#FFBB33 !important;
+}
+.sapUiTableRowHdr.sapUiTableRowSel{
+    background-color:#FFBB33 !important;
+}
+.sapMLIB.sapMLIBSelected {
+	background-color: #FFBB33 !important;
+}
+.sapMListTblCell {
+    border-right: 1px solid lightgray !important;
+    border-top: 1px solid lightgray !important;
+}

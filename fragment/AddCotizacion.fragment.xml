@@ -1,0 +1,80 @@
+<c:FragmentDefinition          
+          xmlns:l="sap.ui.layout" 
+          xmlns:f="sap.ui.layout.form" 
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns:c="sap.ui.core" 
+          xmlns:t="sap.ui.table"
+          xmlns="sap.m">    
+        <Dialog title="Añadir a Cotización">
+            <l:VerticalLayout>
+            <f:SimpleForm 
+                          id="sfCotizacion"
+                          editable="false"
+                          layout="ResponsiveGridLayout"
+                          title=""
+                          labelSpanXL="5"
+                          labelSpanL="5"
+                          labelSpanM="5"
+                          labelSpanS="12"
+                          adjustLabelSpan="true"
+                          emptySpanXL="4"
+                          emptySpanL="4"
+                          emptySpanM="4"
+                          emptySpanS="0"
+                          columnsXL="1"
+                          columnsL="1"
+                          columnsM="1"
+                          singleContainerFullSize="false">
+                <f:content>
+
+                    <Label text="Cod. Versión" labelFor="material" />
+                    <Input id="material" required="true" />
+                    
+                    <Label text="Modelo" labelFor="modelo" />
+                    <Input id="modelo" required="true" editable="false"/>
+                    
+                    <!-- <Label text="Unidades de Medida" labelFor="unidadMed" />
+                    <Input id="unidadMed" required="true"/> -->
+                    
+                    <Label text="Año de Fabricación" labelFor="anhoFac" />
+                    <Select
+                        required="true" 
+                        id="anhoFac"
+                        forceSelection="false">
+                        <c:Item key="1" text="2017" />
+                        <c:Item key="2" text="2016" />
+                        <c:Item key="2" text="2015" />
+                        <c:Item key="2" text="2014" />
+                        <c:Item key="2" text="2013" />
+                        <c:Item key="2" text="2012" />
+                        <c:Item key="2" text="2011" />
+                        <c:Item key="2" text="2010" />
+                    </Select>
+                    
+                    <Label text="Cantidad" labelFor="cantidad" />
+                    <Input id="cantidad" required="true" />
+                    
+                    <Label text="Importe" labelFor="importe" />
+                    <Input id="importe" required="true"/>
+                    
+                    <Label text="Observación" labelFor="observacion" />
+                    <TextArea id="observacion" rows="2" required="true"                         
+                    />
+                    
+                </f:content>
+            </f:SimpleForm>
+            </l:VerticalLayout>
+            <beginButton>
+            <Button text="Guardar" 
+                      press="onSave" 
+                      icon="sap-icon://save"
+              type="Accept"/>
+            </beginButton>
+            <endButton>
+                <Button text="Cerrar" 
+                          press="onClose" 
+                          icon="sap-icon://decline"
+                          type="Reject"/>
+            </endButton>
+        </Dialog>
+</c:FragmentDefinition>

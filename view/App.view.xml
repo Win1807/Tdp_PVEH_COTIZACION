@@ -1,0 +1,13 @@
+<mvc:View 
+          height="100%" 
+          controllerName="sap.ui.veh_cotizacion.controller.App" 
+          xmlns="sap.ui.table" 
+          xmlns:mvc="sap.ui.core.mvc" 
+          xmlns:u="sap.ui.unified" 
+          xmlns:c="sap.ui.core" 
+          xmlns:m="sap.m">
+    <m:App
+		id="app"
+		busy="{appView>/busy}"
+		busyIndicatorDelay="{appView>/delay}"/>
+</mvc:View>

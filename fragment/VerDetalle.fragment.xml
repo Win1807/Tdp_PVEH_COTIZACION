@@ -1,0 +1,205 @@
+<c:FragmentDefinition
+	xmlns="sap.m" 
+	xmlns:c="sap.ui.core"
+	xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:mvc="sap.ui.core.mvc" >
+    <Dialog title = "Detalle Cotización" id="dlgDetalle" afterClose="onCloseDialog">
+    	<l:VerticalLayout class="" width="100%" height="100%">
+			<f:Form id="FORMULARIO3" editable="true" title="Datos del Cliente">
+			<f:layout>
+				<f:ResponsiveGridLayout
+				    labelSpanXL="3"
+				    labelSpanL="3"
+				    labelSpanM="6"
+				    labelSpanS="12"
+				    adjustLabelSpan="false"
+				    emptySpanXL="0"
+				    emptySpanL="0"
+				    emptySpanM="0"
+				    emptySpanS="0"
+				    columnsXL="2"
+				    columnsL="2"
+				    columnsM="2"
+				    singleContainerFullSize="false" />
+			</f:layout>
+		    <f:formContainers>
+		        <f:FormContainer title="">
+		            <f:formElements>
+		                <f:FormElement label="Nombre Cliente">
+		                    <f:fields>
+		                      <Input id="cliente" enabled="false"/>
+		                    </f:fields>
+		                </f:FormElement>
+		                <f:FormElement label="Contacto">
+		                    <f:fields>
+		                      <Input id="contacto" enabled="false" />
+		                    </f:fields>
+		                </f:FormElement>
+		                <f:FormElement label="N° ident. fis. 1">
+		                    <f:fields>
+		                      <Input id="nro_ident" enabled="false" />
+		                    </f:fields>
+		                </f:FormElement>
+		            </f:formElements>
+		        </f:FormContainer>
+		
+		        <f:FormContainer title="">
+		            <f:formElements>
+		              <f:FormElement label="Observaciones">
+		                    <f:fields>
+		                      <TextArea id="observaciones" rows="6" enabled="false" />
+		                    </f:fields>
+		                </f:FormElement>
+		            </f:formElements>
+		        </f:FormContainer>
+		
+		    </f:formContainers>
+		</f:Form>            
+		<ScrollContainer width="100%" horizontal="true">
+		<Table id="TBDetalles" 
+            items="{path:'/'}">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="Listado de Materiales"/>
+					<ToolbarSpacer></ToolbarSpacer>
+					<Button
+						icon="sap-icon://excel-attachment"
+						tooltip="Export" text="Exportar"
+						press="onExportExcel"/>
+				</Toolbar>
+			</headerToolbar>
+            <columns>
+                <Column width="4rem">
+                    <Text text="Posición" />
+                </Column>
+                <Column
+                	width="4rem">
+                    <Text text="Material" />
+                </Column>
+                <Column
+                	width="12rem">
+                    <Text text="Denominación" />
+                </Column>
+                <Column
+                	width="6rem">
+                    <Text text="Ctd. de Pedido" />
+                </Column>
+                <Column
+                	width="4rem">
+                    <Text text="UM Venta" />
+                </Column>
+                <Column
+                	width="4rem">
+                    <Text text="Año Fab." />
+                </Column>
+                <Column
+                	width="4rem">
+                    <Text text="Texto" />
+                </Column>
+                
+                <!--Cot. Unid. Flota-->
+                <Column
+                	visible="false"
+                	id="ColumFlota1"
+                	width="4rem">
+                    <Text text="PVC Fijo" />
+                </Column>
+                <Column
+                	visible="false"
+                	id="ColumFlota2"
+                	width="6rem">
+                    <Text text="PVC Sugerido" />
+                </Column>
+                <Column
+                	visible="false"
+                	id="ColumFlota3"
+                	width="5rem">
+                    <Text text="PVC Mínimo" />
+                </Column>
+                
+                <!--Cot. Unid. Endoso-->
+                <Column
+                	visible="false"
+                	id="ColumEndoso1"
+                	width="3rem">
+                    <Text text="FOB" />
+                </Column>
+                <Column
+                	visible="false"
+                	id="ColumEndoso2"
+                	width="10rem">
+                    <Text text="Derecho de Descarga" />
+                </Column>
+                <Column
+                	visible="false"
+                	id="ColumEndoso3"
+                	width="3rem">
+                    <Text text="Flete" />
+                </Column>
+                
+                <!--Cot. Acuerd Especial-->
+                <Column
+                	visible="false"
+                	id="ColumEspe1"
+                	width="2rem">
+                    <Text text="" />
+                </Column>
+                <Column
+                	visible="false"
+                	id="ColumEspe2"
+                	width="1rem">
+                    <Text text="" />
+                </Column>
+                <Column
+                	visible="false"
+                	id="ColumEspe3"
+                	width="1rem">
+                    <Text text="" />
+                </Column>
+                
+                <Column
+                	width="11rem">
+                    <Text text="Motivo de Rechazo" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{posnr}"/>
+                        <Text text="{path: 'mabnr', formatter: '.formatter.quantity'}"/>
+                        <Text text="{maktx}"/>
+                        <Text text="{path: 'kwmeng', formatter: '.formatter.quantity'}"/>
+                        <Text text="UN"/>
+                        <Text text="{anio}"/>
+                        <Text text="{text}"/>
+                        <!--Celdas para Flota-->
+                        <Text text="{monto1}"/>
+                        <Text text="{monto2}"/>
+                        <Text text="{monto3}"/>
+                        <!--Celdas para Endedoso-->
+                        <Text text="{monto1}"/>
+                        <Text text="{monto3}"/>
+                        <Text text="{monto2}"/>
+                        <!--Celdas para Especial-->
+                        <Text text="{monto1}"/>
+                        <Text text="{monto2}"/>
+                        <Text text="{monto3}"/>
+                        
+                        <Text text="{motivo}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        </ScrollContainer>
+		</l:VerticalLayout>    
+        <endButton>
+		 	<Button 
+                text="Cerrar"
+                press="onCloseDialog"
+                type="Reject"
+                icon="sap-icon://decline"/>
+        </endButton>
+    </Dialog>
+    </c:FragmentDefinition>

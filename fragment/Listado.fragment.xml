@@ -1,0 +1,391 @@
+<c:FragmentDefinition          
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:c="sap.ui.core" 
+	xmlns:t="sap.ui.table"
+	xmlns="sap.m"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:smartVariantManagement="sap.ui.comp.smartvariants"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<l:VerticalLayout width="100%">
+		<Panel headerText="Búsqueda de Cotizaciones" expandable="true" expanded="true" width="auto">
+			<f:Form id="FORMULARIO" editable="true">
+		      <f:layout>
+		          <f:ResponsiveGridLayout
+		              labelSpanXL="3"
+		              labelSpanL="3"
+		              labelSpanM="6"
+		              labelSpanS="12"
+		              adjustLabelSpan="false"
+		              emptySpanXL="0"
+		              emptySpanL="0"
+		              emptySpanM="0"
+		              emptySpanS="0"
+		              columnsXL="2"
+		              columnsL="2"
+		              columnsM="1"
+		              singleContainerFullSize="false" />
+		      </f:layout>
+
+		      <f:formContainers>
+		          <f:FormContainer title="">
+		              <f:formElements>
+		                  <f:FormElement label="Fecha Desde" required="true" >
+		                      <f:fields>
+		                          <DatePicker
+		                            id="idFecDesde"
+		                            displayFormat="dd.MM.yyyy"
+		                            valueFormat="yyyy-MM-dd"
+		                            placeholder="dd.mm.yyyy"
+		                            change="handleChange"/>
+		                      </f:fields>
+		                  </f:FormElement>
+		                  <f:FormElement label="Fecha Hasta">
+		                      <f:fields>
+		                        <DatePicker
+		                          id="idFecHasta"
+		                          displayFormat="dd.MM.yyyy"
+		                          valueFormat="yyyy-MM-dd"
+		                          placeholder="dd.mm.yyyy"
+		                          change="handleChange"/>
+		                      </f:fields>
+		                  </f:FormElement>
+		              </f:formElements>
+		          </f:FormContainer>
+
+
+		          <f:FormContainer title="">
+		              <f:formElements>
+		                <f:FormElement label="N° Doc. Cliente">
+		                      <f:fields>
+		                          <Input id="idDocCliente" type="Number" />
+		                      </f:fields>
+		                  </f:FormElement>
+		                  <f:FormElement label="Nombre de Cliente">
+		                      <f:fields>
+		                          <Input id="idNomCliente" />
+		                      </f:fields>
+		                  </f:FormElement>
+		                  <f:FormElement label="">
+		                      <f:fields>
+		                          <Button text="Buscar" press="onBuscarDatos" icon="sap-icon://search" type="Accept"/>
+		                      </f:fields>
+		                  </f:FormElement>
+		              </f:formElements>
+		          </f:FormContainer>
+
+		      </f:formContainers>
+		    </f:Form>
+		</Panel>
+		<Panel headerText="Listado de Cotizaciones" expandable="true" expanded="true" width="auto">
+		    <Toolbar>
+		      <content>
+		        <Title id="title" text="" />
+		        <ToolbarSpacer/>
+		        <Button icon="sap-icon://activities" tooltip="" text="Ver Detalle" press="getSelectedIndices"/>
+		        <!-- <Button icon="sap-icon://excel-attachment" tooltip="" text="Exportar" press="on"/> -->
+		      </content>
+		    </Toolbar>
+	
+		    <smartVariantManagement:SmartVariantManagement
+			    id="pageVariantId"
+			    class="sapUiTinyMarginTop sapUiTinyMarginEnd sapUiTinyMarginBegin"
+			    persistencyKey="PageVariantPKey"/>
+		    <ScrollContainer horizontal="true">
+		      <smartTable:SmartTable
+		        id="tblVisualizarT"
+		        smartFilterId="smartFilterBar"
+		        smartVariant="pageVariantId"
+		        tableType="ResponsiveTable"
+		        entitySet="RPT_COTIZACIONESSet"
+		        useTablePersonalisation="true"
+		        dataReceived="onLoadT"
+		        beforeRebindTable="onBeforeTBL"
+		        initiallyVisibleFields="Vbeln"
+		        useExportToExcel="true"
+		        enableAutoBinding="true"
+		        customData:useSmartField="false"
+		        smartSelectionMode="Single"
+		        showRowCount="false"
+		        persistencyKey="SmartTablePKey"
+                ignoreFromPersonalisation="Auart,Posnr,Lifsk,Knumv,Bstdk,Flag,Taklv"
+                requestAtLeastFields ="Auart,Posnr,Lifsk,Knumv,Bstdk,Flag,Taklv"                      >
+		          <smartTable:customToolbar> 
+		            <OverflowToolbar design="Transparent"> 
+		              <ToolbarSpacer/>
+		              <Button press="onVolver" icon="sap-icon://close-command-field" tooltip="Volver" id="botonVolver"/>
+				      <Label class="sapUiTinyMarginTop sapUiTinyMarginEnd sapUiTinyMarginBegin" text="Cantidad a mostrar:" />
+				      <Select id="sShow" selectKey="3" change="onShow">
+				          <c:ListItem key="3" text="3"/>
+				          <c:ListItem key="10" text="10"/>
+				          <c:ListItem key="25" text="25"/>
+				          <c:ListItem key="50" text="50"/>
+				          <c:ListItem key="100" text="100"/>
+				      </Select>
+				      <Button id="btnSiguiente" icon="sap-icon://navigation-right-arrow"  iconFirst="false" type="Transparent"  text="Siguiente"  press="goNext"/>
+				      <Button id="btnAnterior" icon="sap-icon://navigation-left-arrow"  type="Transparent"  text="Anterior"  press="goPrevious"/>
+		            </OverflowToolbar> 
+		          </smartTable:customToolbar>
+		          <Table>
+		            <columns>
+		              <Column width="6rem">
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Vbeln",
+                                      "leadingProperty":"Vbeln",
+                                      "filterProperty":"Vbeln",
+                                      "sortProperty":"Vbeln"}' />
+		                  </customData>
+		                <Label text="Doc. Comercial" />
+		              </Column>
+		              <Column width="4rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Kunnr", 
+                                     "leadingProperty":"Kunnr",
+                                      "filterProperty":"Kunnr",
+                                      "sortProperty":"Kunnr"}' />
+		                  </customData>
+		                <Label text="Cod. Dir" />
+		              </Column>
+		              <Column width="15rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Name1", "leadingProperty":"Name1",
+                                    "filterProperty":"Name1",
+                                      "sortProperty":"Name1"}' />
+		                  </customData>
+		                <Label text="Nombre Consecionario" />
+		              </Column>
+		              <Column width="9rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Bezei", "leadingProperty":"Bezei",
+                                       "sortProperty":"Bezei"}' />
+		                  </customData>
+		                <Label text="Clase Doc. Ventas" />
+		              </Column>
+		              <Column width="15rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Name2", "leadingProperty":"Name2",
+                                       "sortProperty":"Name2"}' />
+		                  </customData>
+		                <Label text="Cliente" />
+		              </Column>
+		              <Column width="10rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Stcd1", "leadingProperty":"Stcd1",
+                                      "sortProperty":"Stcd1"}' />
+		                  </customData>
+		                <Label text="N° Doc Identidad Cliente" />
+		              </Column>
+		              <Column width="9rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Kunnr2", "leadingProperty":"Kunnr2",                                    
+                                      "sortProperty":"Kunnr2"}' />
+		                  </customData>
+		                <Label text="Codigo del cliente Dir." />
+		              </Column>
+		              <Column width="8rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Erdat", "leadingProperty":"Erdat",
+                                                "sortProperty":"Erdat"}' />
+		                  </customData>
+		                <Label text="Creado el" />
+		              </Column>
+		              <Column width="6rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Bnddt", "leadingProperty":"Bnddt",
+                                       "sortProperty":"Bnddt"}' />
+		                  </customData>
+		                <Label text="Validez" />
+		              </Column>
+		              <Column width="10rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Vtext", "leadingProperty":"Vtext",
+                                             "sortProperty":"Vtext"}' />
+		                  </customData>
+		                <Label text="Status" />
+		              </Column>
+		              <Column width="15rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Text", "leadingProperty":"Text",
+                                       "sortProperty":"Text"}' />
+		                  </customData>
+		                <Label text="Motivo Rechazo" />
+		              </Column>
+		              <Column width="4rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Matnr", "leadingProperty":"Matnr",
+                                             "sortProperty":"Matnr"}' />
+		                  </customData>
+		                <Label text="Versión" />
+		              </Column>
+		              <Column width="13rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Arktx", "leadingProperty":"Arktx",
+                                     "sortProperty":"Arktx"}' />
+		                  </customData>
+		                <Label text="Denominación" />
+		              </Column>
+		              <Column width="8rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Kwert", "leadingProperty":"Kwert",
+                                     "sortProperty":"Kwert"}' />
+		                  </customData>
+		                <Label text="Importe Aprobado" />
+		              </Column>
+		              <Column width="5rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Monto", "leadingProperty":"Monto",
+                                     "sortProperty":"Monto"}' />
+		                  </customData>
+		                <Label text="Solicitado" />
+		              </Column>
+		              <Column width="8rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Ernam", "leadingProperty":"Ernam",
+                                     "sortProperty":"Ernam"}' />
+		                  </customData>
+		                <Label text="Solicitante" />
+		              </Column>
+		              <Column width="8rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Username", "leadingProperty":"Username",
+                                     "sortProperty":"Username"}' />
+		                  </customData>
+		                <Label text="Aprobador" />
+		              </Column>
+		              <Column width="8rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Udate", "leadingProperty":"Udate",
+                                     "sortProperty":"Udate"}' />
+		                  </customData>
+		                <Label text="Fec. de Aprobación" />
+		              </Column>
+		              <Column width="4rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Kwmeng", "leadingProperty":"Kwmeng",
+                                     "sortProperty":"Kwmeng"}' />
+		                  </customData>
+		                <Label text="Cantidad" />
+		              </Column>
+		              <Column width="4rem" >
+		                  <customData> 
+		                  <c:CustomData key="p13nData"
+		                      value='\{"columnKey": "Kwmeng2", "leadingProperty":"Kwmeng2",
+                                     "sortProperty":"Kwmeng2"}' />
+		                  </customData>
+		                <Label text="Ctd. Uti." />
+		              </Column>
+		            </columns>
+		            <items>
+		              <ColumnListItem>
+		                  <cells>
+		                    <Text text="{Vbeln}" />
+		                    <Text text="{Kunnr}" />
+		                    <Text text="{Name1}" />
+		                    <Text text="{Bezei}" />
+		                    <Text text="{Name2}" />
+		                    <Text text="{Stcd1}" />
+		                    <Text text="{Kunnr2}" />
+		                    <Text text="{path: 'Erdat', formatter: '.formatter.fecha'}" />
+		                    <Text text="{path: 'Bnddt', formatter: '.formatter.fecha'}" />
+		                    <Text text="{Vtext}" />
+		                    <Text text="{Text}" />
+		                    <Text text="{Matnr}" />
+		                    <Text text="{Arktx}" />
+		                    <Text text="{path: 'Kwert', formatter: '.formatter.money'}" />
+		                    <Text text="{path: 'Monto', formatter: '.formatter.money'}" />
+		                    <Text text="{Ernam}" />
+		                    <Text text="{Username}" />
+		                    <Text text="{path: 'Udate', formatter: '.formatter.fecha'}" />
+		                    <Text text="{path: 'Kwmeng', formatter: '.formatter.quantity'}" />
+		                    <Text text="{path: 'Kwmeng2', formatter: '.formatter.quantity'}" />
+		                  </cells>
+		              </ColumnListItem>
+		            </items>
+		        </Table>
+		      </smartTable:SmartTable>
+		    </ScrollContainer>
+	
+		    <smartTable:SmartTable
+		        id="tblVisualizarM"
+		        smartFilterId="smartFilterBar"
+		        tableType="ResponsiveTable"
+		        entitySet="RPT_COTIZACIONESSet"
+		        useTablePersonalisation="true"
+		        dataReceived="onLoadM"
+		        beforeRebindTable="onBeforeTBL"
+		        initiallyVisibleFields="Vbeln,Name2,Stcd1,Erdat,Bnddt"
+		        useExportToExcel="true"
+		        enableAutoBinding="true"
+		        customData:useSmartField="false"
+		        smartSelectionMode="Single"
+		        showRowCount="false"
+		        demandPopin="true">
+		        <Table>
+		          <columns>
+		            <Column width="8rem" >
+		              <customData> 
+		                <c:CustomData key="p13nData" value='\{"columnKey": "Vbeln", "leadingProperty":"Vbeln"}' />
+		              </customData>
+		              <Label text="Doc. Comercial" />
+		            </Column>
+		            <Column width="8rem" >
+		              <customData>
+		                <c:CustomData key="p13nData" value='\{"columnKey": "Name2", "leadingProperty":"Name2"}' />
+		              </customData>
+		              <Label text="Cliente" />
+		            </Column>
+		            <Column width="8rem" >
+		              <customData> 
+		                <c:CustomData key="p13nData" value='\{"columnKey": "Stcd1", "leadingProperty":"Stcd1"}' />
+		              </customData>
+		              <Label text="N° Doc Identidad" />
+		            </Column>
+		            <Column width="8rem" >
+		              <customData>
+		                <c:CustomData key="p13nData" value='\{"columnKey": "Erdat", "leadingProperty":"Erdat"}' />
+		              </customData>
+		              <Label text="Creado el" />
+		            </Column>
+		            <Column width="8rem" >
+		              <customData> 
+		                <c:CustomData key="p13nData" value='\{"columnKey": "Bnddt", "leadingProperty":"Bnddt"}' />
+		              </customData>
+		              <Label text="Validez" />
+		            </Column>
+		          </columns>
+		          <items>
+		            <ColumnListItem type="Navigation" press="onPressItem">
+		                <cells>
+							<Text text="{Vbeln}" />  
+							<Text text="{Name2}" />  
+							<Text text="{Stcd1}" />  
+							<Text text="{path: 'Erdat', formatter: '.formatter.fecha'}" />
+							<Text text="{path: 'Bnddt', formatter: '.formatter.fecha'}" />
+		                </cells>
+		            </ColumnListItem>
+		          </items>
+		      </Table>
+		    </smartTable:SmartTable>
+		</Panel>
+	</l:VerticalLayout>
+</c:FragmentDefinition>

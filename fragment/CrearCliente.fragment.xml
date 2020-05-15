@@ -1,0 +1,70 @@
+<c:FragmentDefinition
+          xmlns:l="sap.ui.layout" 
+          xmlns:f="sap.ui.layout.form" 
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns:c="sap.ui.core" 
+          xmlns:t="sap.ui.table"
+          xmlns="sap.m">
+        <Dialog title="Crear Cliente"
+                afterClose= "CerrarCrearCliente"
+                stretchOnPhone="true">
+            <l:VerticalLayout>
+              <f:SimpleForm 
+                            id="sfCotizacion"
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            title="Ingrese los datos del cliente"
+                            labelSpanXL="1"
+                            labelSpanL="1"
+                            labelSpanM="1"
+                            labelSpanS="4"
+                            adjustLabelSpan="true"
+                            emptySpanXL="1"
+                            emptySpanL="1"
+                            emptySpanM="1"
+                            emptySpanS="0"
+                            columnsXL="1"
+                            columnsL="1"
+                            columnsM="1"
+                            singleContainerFullSize="false">
+                  <f:content>
+                    <RadioButtonGroup id="rdbDocGroup" columns="5" class="sapUiMediumMarginBottom" select="cambiarrdb">
+                      <buttons>
+                        <RadioButton id="0" text="Persona natural" />
+                        <RadioButton id="1" text="Empresa" />
+                        <RadioButton id="2" text="Carnet Extranjeria" />
+                      </buttons>
+                    </RadioButtonGroup>
+                    <Label text="DNI" id="lbldni" labelFor="dni" />
+                    <Input id="dni" type="Text" required="true" change="onValidateNumber"/>
+
+                    <Label text="RUC" id="lblruc" labelFor="ruc" visible="false"/>
+                    <Input id="ruc" type="Text" required="true" visible="false" change="onValidateNumber"/>
+
+                    <Label text="Nº carnet extranj." id="lblcarnet" labelFor="carnet" visible="false"/>
+                    <Input id="carnet" type="Text" required="true" visible="false" change="onValidateNumber"/>
+                    
+                    <Label text="Nombre Cliente" labelFor="nombrecli" />
+                    <Input id="nombrecli" required="true"/>
+                    
+                    <Label text="Dirección" labelFor="direccion" />
+                    <Input id="direccion" required="true"/>
+
+                    <Label text="Ciudad" labelFor="ciudad" />
+                    <Input id="ciudad" required="true"/>
+
+                    <Label text="Nombre contacto" labelFor="nombrecon" />
+                    <Input id="nombrecon" required="true"/>
+                  </f:content>
+              </f:SimpleForm>
+            </l:VerticalLayout>
+
+            <beginButton>
+            <Button text="Crear Cliente" press="CrearCliente" icon="sap-icon://save" type="Accept"/>
+            </beginButton>
+
+            <endButton>
+                <Button text="Cerrar" press="CerrarCrearCliente" icon="sap-icon://decline" type="Reject"/>
+            </endButton>
+        </Dialog>
+</c:FragmentDefinition>

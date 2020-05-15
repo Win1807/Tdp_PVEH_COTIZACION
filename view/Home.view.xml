@@ -1,0 +1,33 @@
+<mvc:View 
+    controllerName="sap.ui.veh_cotizacion.controller.Home" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:c="sap.ui.core"
+    xmlns:m="sap.ui.table"
+    xmlns="sap.m">
+    <Page title="Cotización de Vehiculos" showNavButton="true" navButtonPress="onNavBack">
+            <IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" expanded="true">
+                <items>
+                    <IconTabFilter id="iconTabRegistrar" 
+                                icon="sap-icon://car-rental" 
+                                tooltip="Registrar" 
+                                text="Registrar" 
+                                state="Success" 
+                                design="Vertical">
+                        <c:Fragment id="frgAddCotizacion" fragmentName="sap.ui.veh_cotizacion.fragment.CrearCotizacion" type="XML" />
+                    </IconTabFilter>
+                    <IconTabFilter id="iconTabList"
+                                   icon="sap-icon://create-form"
+                                   tooltip="Listado" 
+									text="Listado" 
+									state="Success" 
+									design="Vertical">
+                        <c:Fragment id="frgReporte" fragmentName="sap.ui.veh_cotizacion.fragment.Listado" type="XML" />
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        
+    </Page>
+</mvc:View>

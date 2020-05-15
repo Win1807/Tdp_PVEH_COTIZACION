@@ -1,0 +1,278 @@
+{
+	"ProductCollection": [
+		{
+            "Name": "0000403293",
+            "Version": "1317",
+            "Modelo": "HILUX 4X4 D/C 1GD SRV",
+			"Color": "PLATA METALICO- (1D6)",
+            "TipoCarroceria": "Camioneta 1",
+            "Cod": 2010,
+            "TipoVenta": "Ventas",
+            "FechaFactura": "31.01.2017",
+            "Dias": 244,
+            "Disponibilidad": "Desprogramado",
+			"Ubicacion": "Almacenera LSA",
+            "Marca": "TOYOTA",
+            "Vin": "8AJHA8CDXH2582443"
+		},
+        		{
+            "Name": "0000403286",
+            "Version": "1317",
+            "Modelo": "HILUX 4X4 D/C 1GD SRV",
+			"Color": "GRIS OSCURO METALICO- (1G3)",
+            "TipoCarroceria": "Camioneta 1",
+            "Cod": 2011,
+            "TipoVenta": "Ventas",
+            "FechaFactura": "31.01.2017",
+            "Dias": 244,
+            "Disponibilidad": "Desprogramado",
+			"Ubicacion": "Almacenera LSA",
+            "Marca": "TOYOTA",
+            "Vin": "8AJHA8CDXH2582443"
+		},
+        		{
+            "Name": "0000403287",
+            "Version": "1317",
+            "Modelo": "HILUX 4X4 D/C 1GD SRV",
+			"Color": "GRIS OSCURO METALICO- (1G3)",
+            "TipoCarroceria": "Camioneta 1",
+            "Cod": 2012,
+            "TipoVenta": "Ventas",
+            "FechaFactura": "31.01.2017",
+            "Dias": 244,
+            "Disponibilidad": "Desprogramado",
+			"Ubicacion": "Almacenera LSA",
+            "Marca": "TOYOTA",
+            "Vin": "8AJHA8CDXH2582443"
+		},
+        		{
+            "Name": "0000403269",
+            "Version": "1317",
+            "Modelo": "HILUX 4X4 D/C 1GD SRV",
+			"Color": "PLATA METALICO- (1D6)",
+            "TipoCarroceria": "Camioneta 1",
+            "Cod": 2013,
+            "TipoVenta": "Ventas",
+            "FechaFactura": "31.01.2017",
+            "Dias": 244,
+            "Disponibilidad": "Desprogramado",
+			"Ubicacion": "Almacenera LSA",
+            "Marca": "TOYOTA",
+            "Vin": "8AJHA8CDXH2582443"
+		},
+        		{
+            "Name": "0000403290",
+            "Version": "1317",
+            "Modelo": "HILUX 4X4 D/C 1GD SRV",
+			"Color": "GRIS OSCURO METALICO- (1G3)",
+            "TipoCarroceria": "Camioneta 1",
+            "Cod": 2010,
+            "TipoVenta": "Ventas",
+            "FechaFactura": "31.01.2017",
+            "Dias": 244,
+            "Disponibilidad": "Desprogramado",
+			"Ubicacion": "Almacenera LSA",
+            "Marca": "TOYOTA",
+            "Vin": "8AJHA8CDXH2582443"
+		},
+        		{
+            "Name": "0000403293",
+            "Version": "1317",
+            "Modelo": "HILUX 4X4 D/C 1GD SRV",
+			"Color": "PLATA METALICO- (1D6)",
+            "TipoCarroceria": "Camioneta 1",
+            "Cod": 2014,
+            "TipoVenta": "Ventas",
+            "FechaFactura": "31.01.2017",
+            "Dias": 244,
+            "Disponibilidad": "Desprogramado",
+			"Ubicacion": "Almacenera LSA",
+            "Marca": "TOYOTA",
+            "Vin": "8AJHA8CDXH2582443"
+		},
+        		{
+            "Name": "0000403299",
+            "Version": "1317",
+            "Modelo": "HILUX 4X4 D/C 1GD SRV",
+			"Color": "PLATA METALICO- (1D6)",
+            "TipoCarroceria": "Camioneta 1",
+            "Cod": 2015,
+            "TipoVenta": "Ventas",
+            "FechaFactura": "31.01.2017",
+            "Dias": 244,
+            "Disponibilidad": "Desprogramado",
+			"Ubicacion": "Almacenera LSA",
+            "Marca": "TOYOTA",
+            "Vin": "8AJHA8CDXH2582443"
+		}
+		
+	],
+	"ProductCollectionStats": {
+		"Counts": {
+			"Total": 123,
+			"Weight": {
+				"Ok": 53,
+				"Heavy": 51,
+				"Overweight": 19
+			}
+		},
+		"Groups": {
+			"Category": {
+				"Accessories" : 34,
+				"Desktop Computers" : 7,
+				"Flat Screens" : 2,
+				"Keyboards" : 4,
+				"Laptops" : 11,
+				"Printers" : 9,
+				"Smartphones and Tablets" : 9,
+				"Mice" : 7,
+				"Computer System Accessories" : 8,
+				"Graphics Card" : 4,
+				"Scanners" : 4,
+				"Speakers" : 3,
+				"Software" : 8,
+				"Telekommunikation" : 3,
+				"Servers" : 3,
+				"Flat Screen TVs" : 3
+			},
+			"SupplierName": {
+				"Titanium": 21,
+				"Technocom": 22,
+				"Red Point Stores": 7,
+				"Very Best Screens": 14,
+				"Smartcards": 2,
+				"Alpha Printers": 5,
+				"Printer for All": 8,
+				"Oxynum": 8,
+				"Fasttech": 15,
+				"Ultrasonic United": 15,
+				"Speaker Experts": 3,
+				"Brainsoft": 3
+			}
+		},
+		"Filters": [
+			{
+				"type": "Category",
+				"values": [
+					{
+						"text": "Accessories",
+						"data": 34
+					},
+					{
+						"text": "Desktop Computers",
+						"data": 7
+					},
+					{
+						"text": "Flat Screens",
+						"data": 2
+					},
+					{
+						"text": "Keyboards",
+						"data": 4
+					},
+					{
+						"text": "Laptops",
+						"data": 11
+					},
+					{
+						"text": "Printers",
+						"data": 9
+					},
+					{
+						"text": "Smartphones and Tablets",
+						"data": 9
+					},
+					{
+						"text": "Mice",
+						"data": 7
+					},
+					{
+						"text": "Computer System Accessories",
+						"data": 8
+					},
+					{
+						"text": "Graphics Card",
+						"data": 4
+					},
+					{
+						"text": "Scanners",
+						"data": 4
+					},
+					{
+						"text": "Speakers",
+						"data": 3
+					},
+					{
+						"text": "Software",
+						"data": 8
+					},
+					{
+						"text": "Telekommunikation",
+						"data": 3
+					},
+					{
+						"text": "Servers",
+						"data": 3
+					},
+					{
+					  "text": "Flat Screen TVs",
+					  "data": 3
+					}
+				]
+			},
+			{
+				"type": "SupplierName",
+				"values": [
+					{
+					"text": "Titanium",
+					"data": 21
+				  },
+				  {
+					"text": "Technocom",
+					"data": 22
+				  },
+				  {
+					"text": "Red Point Stores",
+					"data": 7
+				  },
+				  {
+					"text": "Very Best Screens",
+					"data": 14
+				  },
+				  {
+					"text": "Smartcards",
+					"data": 2
+				  },
+				  {
+					"text": "Alpha Printers",
+					"data": 5
+				  },
+				  {
+					"text": "Printer for All",
+					"data": 8
+				  },
+				  {
+					"text": "Oxynum",
+					"data": 8
+				  },
+				  {
+					"text": "Fasttech",
+					"data": 15
+				  },
+				  {
+					"text": "Ultrasonic United",
+					"data": 15
+				  },
+				  {
+					"text": "Speaker Experts",
+					"data": 3
+				  },
+				  {
+					"text": "Brainsoft",
+					"data": 3
+				  }
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,83 @@
+{
+  "routes": [
+    {
+      "path": "/webapp/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/webapp/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/servicioZPORTAL_PROVEE",
+      "target": {
+        "type": "destination",
+        "name": "destTDPQASProveedor",
+        "entryPath": "/"
+      },
+      "description": "destTDPQASProveedor"
+    },
+    {
+      "path": "/serv_provee",
+      "target": {
+        "type": "destination",
+        "name": "DEV_TO_ODVIATICOS"
+      }
+    },
+    {
+      "path": "/services/userapi",
+      "target": {
+        "type": "service",
+        "name": "userapi",
+        "entryPath": "/"
+      },
+      "description": "services"
+    },
+    {
+      "path": "/DEV_TO_ODVIATICOS",
+      "target": {
+        "type": "destination",
+        "name": "DEV_TO_ODVIATICOS",
+        "entryPath": "/"
+      },
+      "description": "DEV_TO_ODVIATICOS"
+    },
+    {
+      "path": "/SRV_RESTVEHICULOS",
+      "target": {
+        "type": "destination",
+        "name": "SRV_RESTVEHICULOS",
+        "entryPath": "/"
+      },
+      "description": "SRV_RESTVEHICULOS"
+    }
+  ]
+}

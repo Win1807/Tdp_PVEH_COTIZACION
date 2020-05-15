@@ -1,0 +1,175 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core" 
+    xmlns:t="sap.ui.table"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+	<Panel 
+    expandable="true" 
+    expanded="true" 
+    width="auto"
+    headerText="Datos cabecera cotización">
+    <f:Form id="FORMULARIO1" editable="true">
+      <f:layout>
+        <f:ResponsiveGridLayout
+          labelSpanXL="4"
+          labelSpanL="4"
+          labelSpanM="6"
+          labelSpanS="12"
+          adjustLabelSpan="false"
+          emptySpanXL="0"
+          emptySpanL="0"
+          emptySpanM="0"
+          emptySpanS="0"
+          columnsXL="2"
+          columnsL="2"
+          columnsM="1"
+          singleContainerFullSize="false" />
+      </f:layout>
+      <f:formContainers>
+        <f:FormContainer title="">
+          <f:formElements>
+            <f:FormElement label="Seleccione tipo de cotiz." required="true" >
+              <f:fields>
+                <Select id="selectTipoCoti" items="{tipoCoti>/tipoCotiitems}" change="onSelectionModeChange">
+                  <c:Item key="{tipoCoti>key}" text="{tipoCoti>value}"/>
+                </Select>
+              </f:fields>
+            </f:FormElement>              
+            <f:FormElement label="Concesionario">
+              <f:fields>
+                <Input id="txtConcesionario" type="Number" enabled="false"/>
+              </f:fields>
+            </f:FormElement>
+            <f:FormElement id="negociador" label="Negociador Dealer" visible="false">
+              <f:fields>
+                <Input id="negociador2" required="true"/>
+              </f:fields>
+            </f:FormElement>
+            <f:FormElement id="negociadortdp" label="Negociador TDP" visible="false">
+              <f:fields>
+                <Input id="negociadortdp2" required="true"/>
+              </f:fields>
+            </f:FormElement>
+            <f:FormElement id="fecdesde" label="Fecha de Negociaciónr" visible="false">
+              <f:fields>
+                <DatePicker 
+                  id="fecdesde2"
+                  placeholder="Ingrese la Fecha..."
+                  valueFormat="yyyyMMdd" 
+                  displayFormat="dd.MM.yyyy"
+                  change="handleChange"/>
+              </f:fields>
+            </f:FormElement>
+            <f:FormElement id="motivo" label="Motivo" visible="false">
+              <f:fields>
+                <TextArea id="motivo2" rows="2" required="true" ></TextArea>
+              </f:fields>
+            </f:FormElement>
+            <f:FormElement label="Cliente RUC / DNI">
+              <f:fields>
+                <Input id="cliente" type="Text" change="onValidateNumber"/>
+                <Button text="Buscar Cliente" press="BuscarCliente" icon="sap-icon://search" />
+              </f:fields>
+            </f:FormElement>
+              
+            <f:FormElement label="">
+                <f:fields>
+                    <html:br />
+                </f:fields>
+            </f:FormElement>
+            <f:FormElement label="" visible="false" id="idline">
+                <f:fields>
+                    <html:hr></html:hr>
+                </f:fields>
+            </f:FormElement>
+            <f:FormElement label="">
+                <f:fields>
+                    <html:br />
+                </f:fields>
+            </f:FormElement>
+              
+              <f:FormElement label="Cod. SAP" visible="false" id="codSap1">
+              <f:fields>
+                  <Input id="codSap" enabled="false" />
+              </f:fields>
+            </f:FormElement>
+            <f:FormElement label="Nombre" visible="false" id="nombre1">
+              <f:fields>
+                  <Input id="nombre" enabled="false" />
+              </f:fields>
+            </f:FormElement>
+            <f:FormElement label="N. ident. fis. 1" visible="false" id="identfis1">
+              <f:fields>
+                <Input id="identfis" enabled="false" />
+              </f:fields>
+            </f:FormElement>
+          </f:formElements>
+        </f:FormContainer>
+
+        <f:FormContainer title="">
+          <f:formElements>
+            <f:FormElement label="Observación">
+              <f:fields>
+                <TextArea id="obs" rows="6"></TextArea>
+              </f:fields>
+            </f:FormElement>
+          </f:formElements>
+        </f:FormContainer>
+      </f:formContainers>
+    </f:Form>
+  </Panel>
+  <Panel headerText="Detalle de la Cotización" expandable="true" expanded="true" width="auto">
+	  <Table 
+	    id="tblCotizacion"
+	    busyIndicatorDelay="{oModel2>/tableBusyDelay}"
+	    showNoData="false"
+	    mode="MultiSelect">
+	    <headerToolbar>
+	      <Toolbar>
+	        <Button
+	          id="addRow"
+	          icon="sap-icon://add-activity-2"
+	          tooltip="Añadir"
+	          text="Añadir Material"
+	          class="sapUiSmallMarginBottom"
+	          press="agregar"/>
+	        <Button
+	          id="delRow"
+	          icon="sap-icon://decline"
+	          tooltip="Eliminar"
+	          text="Eliminar Material"
+	          class="sapUiSmallMarginBottom"
+	          press="eliminarMaterial"/>
+	      </Toolbar>
+	    </headerToolbar>
+	    <columns>
+	      <Column minScreenWidth= "Medium" demandPopin="true">
+	        <Label id="1" text="Cod. Materiales" /> 
+	      </Column>
+	      <Column minScreenWidth= "Medium" demandPopin="true">
+	         <Label id="2" text="Modelo" /> 
+	      </Column>
+	      <Column  minScreenWidth= "Medium" demandPopin="true">
+	         <Label id="3" text="Unidades de Medida" /> 
+	      </Column>
+	      <Column width="8rem" minScreenWidth= "Medium" demandPopin="true">
+	         <Label id="4" text="Año de Fabricación" /> 
+	      </Column>
+	      <Column  minScreenWidth= "Medium" demandPopin="true">
+	          <Label id="5" text="Cantidad" />
+	      </Column>
+	      <Column width="13rem" minScreenWidth= "Medium" demandPopin="true">
+	          <Label id="7" text="Observación" />
+	      </Column>
+	      <Column id="importe" visible="false" minScreenWidth= "Medium" demandPopin="true">
+	          <Label id="6" text="Importe" />
+	      </Column>
+	    </columns>
+	  </Table>
+	  <Button type="Accept" text="Crear Cotización" press="guardarCotizacion" icon="sap-icon://save"/>
+	  
+	</Panel>
+</c:FragmentDefinition>
